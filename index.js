@@ -1,3 +1,12 @@
+ //  palindrome string
+ function isPalindrome(str) {
+    return str === str.split("").reverse().join("");
+  }
+  
+  console.log(isPalindrome("pop")); 
+  console.log(isPalindrome("life")); 
+ 
+ 
  //max number
  let numbers=[1,2,100,3,-1]
  let maxNumber=  numbers[0];
@@ -60,3 +69,4 @@ function indexOFAnyNumberInArray(){
     
 }
  indexOFAnyNumberInArray()
+
