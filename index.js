@@ -115,3 +115,47 @@ function mergeAndSort(arr1, arr2, order) {
   console.log(mergeAndSort(players1, players2, "ascending")); 
   console.log(mergeAndSort(players2,players1,  "descending")); 
   
+
+  //
+  let contribution =[
+    {
+        name:"mike",
+        amount: 100,
+    },
+    {
+        name:"john",
+        amount: 200,
+    },
+  ]
+  console.log( "list of contributors",contribution);
+
+      function addNewMembers( name,amount){
+        let newMember ={
+            name:name,
+            amount:amount
+        } 
+        contribution.push(newMember)
+    }  
+   addNewMembers("isac", 120)
+   addNewMembers("ben", 100)
+   console.log( "list of contributor after adding new members",contribution);
+
+function updating(name){
+    for ( members in contribution){
+        if (contribution[members].name == name){
+            contribution[members]
+        } console.log(" memeber after updating",contribution);
+           contribution.push(members)
+    }
+}
+   updating()
+   function withdrawByAMember(name){
+    for (withdraw in contribution){
+        if (contribution[withdraw].name == name){
+            contribution[withdraw].amount = 0
+        }
+    } console.log("list after a member make a withraw",contribution);
+    
+   }
+   withdrawByAMember("john")
+    
