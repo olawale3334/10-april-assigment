@@ -94,9 +94,24 @@ function generateMultiples(num, count) {
   console.log(generateMultiples(5,3));
 // merge 2 arrays and sort 
 
-let players =["ronaldo","messi", "palmer"]
-let newPlayer = players.concat(["yamal","osime","boniface"])
-newPlayer.sort()
-console.log(newPlayer);
 
 
+
+function mergeAndSort(arr1, arr2, order) {
+    let mergedArray = [...arr1, ...arr2];
+  
+    if (order === "ascending") {
+      return mergedArray.sort((a, b) => a - b);
+    } else if (order === "descending") {
+      return mergedArray.sort((a, b) => b - a);
+    } else {
+      console.log("erong sort param");
+    }
+  }
+  
+  let players1 = ["ronaldo","messi", "palmer"];
+  let players2 = ["yamal","osime","boniface"];
+  
+  console.log(mergeAndSort(players1, players2, "ascending")); 
+  console.log(mergeAndSort(players2,players1,  "descending")); 
+  
