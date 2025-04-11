@@ -159,3 +159,20 @@ function updating(name){
    }
    withdrawByAMember("john")
     
+//    function removeAMember(arr, member){
+//     let index = arr.indexOf(member);
+//   if (index !== -1) {
+//     arr.splice(index, 1);
+//   }
+//   return arr;
+//    }
+//    console.log(removeAMember(contribution, "ben"))
+
+function deleteStudent(contribution, name) {
+    let index = contribution.findIndex((contribution) => contribution.name === name);
+    if (index !== -1) {
+      contribution.splice(index, 1);
+    }
+    return contribution;
+  }
+  console.log(deleteStudent( contribution, "ben"));
