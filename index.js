@@ -117,62 +117,63 @@ function mergeAndSort(arr1, arr2, order) {
   
 
   //
-  let contribution =[
-    {
-        name:"mike",
-        amount: 100,
-    },
-    {
-        name:"john",
-        amount: 200,
-    },
+  let contribution = [
+    { name: 'pantong', amount: 100 },
+    { name: 'jennifer', amount: 200 },
+    { name: 'olushola', amount: 150 },
   ]
-  console.log( "list of contributors",contribution);
-
-      function addNewMembers( name,amount){
-        let newMember ={
-            name:name,
-            amount:amount
-        } 
-        contribution.push(newMember)
-    }  
-   addNewMembers("isac", 120)
-   addNewMembers("ben", 100)
-   console.log( "list of contributor after adding new members",contribution);
-
-function updating(name){
-    for ( members in contribution){
-        if (contribution[members].name == name){
-            contribution[members]
-        } console.log(" memeber after updating",contribution);
-           contribution.push(members)
+  
+  function addNewMembers(name, amount) {
+    let existingMember = false;
+    for(index in contribution) {
+      if (contribution[index].name === name) {
+        contribution[index].amount += amount;
+        existingMember = true;
+        break;
+      }
     }
-}
-   updating()
-   function withdrawByAMember(name){
-    for (withdraw in contribution){
-        if (contribution[withdraw].name == name){
-            contribution[withdraw].amount = 0
-        }
-    } console.log("list after a member make a withraw",contribution);
-    
-   }
-   withdrawByAMember("john")
-    
-//    function removeAMember(arr, member){
-//     let index = arr.indexOf(member);
-//   if (index !== -1) {
-//     arr.splice(index, 1);
-//   }
-//   return arr;
-//    }
-//    console.log(removeAMember(contribution, "ben"))
-
-function deleteStudent(contribution, name) {
-    let index = contribution.findIndex((contribution) => contribution.name === name);
-    if (index !== -1) {
-      contribution.splice(index, 1);
+    if (!existingMember) {
+      contribution.push({ name, amount });
     }
-    return contribution;
   }
-  console.log(deleteStudent( contribution, "ben"));
+  
+  addNewMembers('jennifer', 400)
+  addNewMembers('peter', 200)
+  addNewMembers('sandra', 120)
+  
+  console.log("List after adding new members:", contribution);
+  
+
+   function withdrawByAMember( name, amount){
+       
+       for(index in contribution){
+        if (contribution[index].name === name){
+            contribution[index].amount -= amount
+           
+            
+        } else if (contribution[index].name ===name){
+              contribution[index].amount < amount || contribution[index]-amount < 0
+              return (name,amount )
+        }   
+        
+         
+       } 
+
+         
+   }
+   withdrawByAMember("jennifer", 700)
+    console.log( "list after a memeber withdraw",contribution)
+
+
+    function deleteContributor(contribution, name) {
+      let newContribution = [];
+      for (let i = 0; i < contribution.length; i++) {
+        if (contribution[i].name !== name) {
+          newContribution.push(contribution[i]);
+        }
+      }
+      return newContribution;
+    }
+    
+    console.log(deleteContributor(contribution, "jennifer"));
+    
